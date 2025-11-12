@@ -1,0 +1,44 @@
+package rationnel;
+
+import types.Rationnel;
+import util.Outils;
+
+import java.lang.Math;
+public class RationnelSimple implements Rationnel{
+	private int numerateur;
+	private int denominateur;
+	
+	public RationnelSimple(int numerateur) {
+		this.numerateur = numerateur;
+		this.denominateur = 1;
+		
+	}
+	
+	public RationnelSimple(int numerateur, int denominateur) {
+		this.numerateur = numerateur;
+		this.denominateur = denominateur;
+		
+		int 
+		
+	} //TODO MAKE THIS IRREDUCTIBLE AND DENOMINATEUR SUPERIOUR TO 0
+	
+	public RationnelSimple(Rationnel r) {
+		this.numerateur = r.getNumerateur();
+		this.denominateur = r.getDenominateur();
+	}
+
+
+	public boolean equals(Rationnel r) 
+	{
+		return this.numerateur == r.getNumerateur() && this.denominateur == r.getDenominateur();
+	}
+	
+	
+	public Rationnel somme(Rationnel r) 
+	{
+		return new RationnelSimple(r.getDenominateur() * this.numerateur +  this.denominateur* r.getNumerateur()   ,    this.denominateur * r.getDenominateur()); 
+	}
+
+	public Rationnel somme()
+
+}

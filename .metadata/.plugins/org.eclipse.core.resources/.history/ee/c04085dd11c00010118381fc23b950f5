@@ -1,0 +1,53 @@
+package util;
+import java.util.Scanner;
+
+import rationnel.RationnelSimple;
+import types.*;
+public class Client {
+
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    Rationnel precedent = new RationnelSimple(0); // start from 0
+	    Rationnel courant;
+
+	    String cmp;
+	    String sup;
+	    
+	    
+	    while (true) 
+	    {
+	        courant = lireRationnel(sc);
+	        
+	        if(courant.valeur() == 0) {break;}//check if we need to end the loop
+	        
+	        
+	        
+	        
+	        
+	        System.out.println("courant = " + courant.toString() + " ; " + courant.toString() + " + " + precedent.toString() + " = " + courant.somme(precedent).toString()+" ; " + "valeur = " + courant.valeur() +" ; " + courant.toString() + " " + sup + " " precedent.toString() + " ; " + courant.toString() + " " + cmp + " " precedent.toString());
+	        
+	    
+	    
+	    }
+		
+	}
+
+	
+	
+	
+	static Rationnel lireRationnel(Scanner input) {
+	    System.out.print("Enter numerator: ");
+	    int num = input.nextInt();
+
+	    int den;
+	    do {
+	        System.out.print("Enter denominator (non-zero): ");
+	        den = input.nextInt();
+	        if (den == 0)
+	            System.out.println("Denominator cannot be zero. Try again.");
+	    } while (den == 0);
+
+	    return new RationnelSimple(num, den);
+	}
+
+}

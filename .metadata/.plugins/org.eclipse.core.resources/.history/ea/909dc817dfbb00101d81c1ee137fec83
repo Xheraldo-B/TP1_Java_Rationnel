@@ -1,0 +1,71 @@
+package snake_game;
+
+public class Board {
+	private int rows;
+	private int columns;
+	private char[][] grid;
+	
+	
+	public Board(int rows, int columns) 
+	{
+		this.rows = rows;
+		this.columns = columns;
+		grid = new char[rows][columns];
+		
+		
+		//Add walls to the grid
+		
+		for (int i = 0; i< grid.length; i++){
+		     for (int j = 0; j< grid[i].length; j++){
+		        
+		    	 if(i == 0 || i== grid.length-1) 
+		    	 {
+		    		 grid[i][j] = '*';
+		    	 }
+		    	 else if (j == 0 || j == grid[i].length-1 )
+		    	 {
+		    		 grid[i][j] = '*';
+		    	 }
+		    	 
+		    	 
+		     }
+
+		}
+		
+	}
+	
+	public char get(int x, int y) 
+	{
+		return grid[x][y];
+	}
+
+	public void addFood() 
+	{
+		int x = (int)(Math.random() * rows);
+		int y = (int)(Math.random() * columns);
+		//check to not overwrite borders
+		while(grid[x][y] == '*') 
+		{
+			x = (int)(Math.random() * rows);
+			y = (int)(Math.random() * columns);
+		}
+
+		
+		grid[x][y] = 'x';
+	}
+/*
+	public void addSnake(Snake snake) 
+	{
+		
+	}*/
+	public void draw() 
+	{
+	    for (int i = 0; i < grid.length; i++) {
+	        for (int j = 0; j < grid[i].length; j++) {
+	            System.out.print(grid[i][j]);
+	        }
+	        System.out.println();
+	    }
+	}
+
+	}

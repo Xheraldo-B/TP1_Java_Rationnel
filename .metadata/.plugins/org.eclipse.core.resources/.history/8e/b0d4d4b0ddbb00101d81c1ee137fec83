@@ -1,0 +1,30 @@
+package snake_game;
+
+public class Board {
+	private int rows;
+	private int columns;
+	private char[][] grid;
+	
+	
+	public Board(int rows, int columns) 
+	{
+		this.rows = rows;
+		this.columns = columns;
+		grid = new char[rows][columns];
+	}
+	
+	public char get(int x, int y) 
+	{
+		return grid[x][y];
+	}
+
+	public void addFood() 
+	{
+		grid[(int)(Math.random() * rows)][(int)(Math.random() * columns)] = 'x';
+	}
+
+	public void addSnake(Snake snake) 
+	{
+		
+	}
+}

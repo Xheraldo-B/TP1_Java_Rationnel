@@ -1,0 +1,12 @@
+package snake_game;
+
+public class main {
+
+	public static void main(String[] args) {
+		Board test = new Board(10, 10);
+		
+		test.draw();
+
+	}
+
+}
