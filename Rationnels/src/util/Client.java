@@ -1,13 +1,14 @@
 package util;
 import java.util.Scanner;
 
+import rationnel.RationnelCouple;
 import rationnel.RationnelSimple;
 import types.*;
 public class Client {
 
 	public static void main(String[] args) {
 	    Scanner sc = new Scanner(System.in);
-	    Rationnel precedent = new RationnelSimple(0); // start from 0
+	    Rationnel precedent = new RationnelCouple(0); // start from 0
 	    Rationnel courant;
 	    Rationnel[] rationnels = new Rationnel[50]; 
 	    int nb = 0; 
@@ -45,7 +46,7 @@ public class Client {
 
 	
 	static Rationnel makeRationnel(int num, int den) {
-	    return new RationnelSimple(num, den);
+	    return new RationnelCouple(num, den);
 	}
 
 	static void insererRationnel ( Rationnel nouveau , Rationnel [] lesRationnels , int nb ) 
