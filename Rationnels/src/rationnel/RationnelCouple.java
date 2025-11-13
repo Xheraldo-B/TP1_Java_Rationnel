@@ -5,10 +5,6 @@ import util.Outils;
 public class RationnelCouple implements Rationnel{
 	Couple<Integer, Integer> valeurs ;
 	
-	public RationnelCouple() {
-		// TODO Auto-generated constructor stub
-	}
-
 	
 	public RationnelCouple(int numerateur) {
 		valeurs = new Couple<Integer, Integer>(numerateur, 1);

@@ -8,7 +8,7 @@ public class Client {
 
 	public static void main(String[] args) {
 	    Scanner sc = new Scanner(System.in);
-	    Rationnel precedent = new RationnelCouple(0); // start from 0
+	    Rationnel precedent = makeRationnel(0,1); // start from 0
 	    Rationnel courant;
 	    Rationnel[] rationnels = new Rationnel[50]; 
 	    int nb = 0; 
@@ -46,7 +46,11 @@ public class Client {
 
 	
 	static Rationnel makeRationnel(int num, int den) {
-	    return new RationnelCouple(num, den);
+	    
+		if(num % 2 == 0) {return new RationnelCouple(num, den);}
+		else {return new RationnelSimple(num, den);}
+		
+		
 	}
 
 	static void insererRationnel ( Rationnel nouveau , Rationnel [] lesRationnels , int nb ) 
@@ -86,7 +90,7 @@ public class Client {
 		
 		for (int i = 0; i < nb; i++) 
 		{
-			System.out.println(lesRationnels[i] + " ; valeur = " + lesRationnels[i].valeur());
+			System.out.println(lesRationnels[i] + " ; valeur = " + lesRationnels[i].valeur() + " ; " + lesRationnels[i].getClass().getSimpleName());
 		}
 	}
 	
