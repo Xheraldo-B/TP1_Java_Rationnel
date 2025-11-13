@@ -1,9 +1,0 @@
-package rationnel;
-
-public class RationnelSimple {
-
-	public RationnelSimple() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
