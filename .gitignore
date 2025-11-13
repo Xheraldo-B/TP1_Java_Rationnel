@@ -1,0 +1,10 @@
+# Eclipse metadata
+.metadata/
+*.snap
+*.index
+*.xmi
+
+# Other OS/temp files
+*.class
+*.log
+*.tmp
