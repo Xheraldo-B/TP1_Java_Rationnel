@@ -9,38 +9,41 @@ public class Client {
 	    Scanner sc = new Scanner(System.in);
 	    Rationnel precedent = new RationnelSimple(0); // start from 0
 	    Rationnel courant;
-	    Rationnel[] rationnels = new Rationnel[50]; 
-	    int nb = 0; 
 
-	    while (true) {
+	    
+	    while (true) 
+	    {
 	        courant = lireRationnel(sc);
+	        
+	        if(courant.getNumerateur() == 0) {break;}//check if we need to end the loop
+	        
+	        String cmp;
+	        if(courant.equals(precedent)) {cmp = "==";}
+	        else {cmp = "!=";}
+	        
+            String sup;
+            int comparaison = courant.compareTo(precedent);
+	        if(comparaison == -1) {sup = "<";}
+	        else if(comparaison == 0) {sup = "==";}
+	        else {sup = ">";}
+	        
+            System.out.print("courant = " + courant);
+            System.out.print(" ; " + courant + " + " + precedent + " = " + courant.somme(precedent));
 
-	        if (courant.getNumerateur() == 0) { break; } // stop if numerator is 0
+            if (courant.getNumerateur() != 0) {
+                System.out.print(" ; inverse = " + courant.inverse());
+            } else {
+                System.out.print(" ; inverse = undefined");
+            }
 
-	        // insert in sorted order
-	        insererRationnel(courant, rationnels, nb);
-	        nb++;
-
-	        // display array and sum
-	        System.out.println("Tableau trié des rationnels :");
-	        afficher(rationnels, nb);
-	        System.out.println("Somme des rationnels = " + sommeRationnels(rationnels, nb));
-
-	        // compare with previous rational
-	        String cmp = courant.equals(precedent) ? "==" : "!=";
-	        int comparaison = courant.compareTo(precedent);
-	        String sup = (comparaison == -1) ? "<" : (comparaison == 0) ? "==" : ">";
-
-	        // print current info
-	        System.out.print("courant = " + courant);
-	        System.out.print(" ; " + courant + " + " + precedent + " = " + courant.somme(precedent));
-	        System.out.print(" ; inverse = " + courant.inverse());
-	        System.out.print(" ; valeur = " + courant.valeur());
-	        System.out.print(" ; " + courant + " " + sup + " " + precedent);
-	        System.out.println(" ; " + courant + " " + cmp + " " + precedent);
-
+            System.out.print(" ; valeur = " + courant.valeur());
+            System.out.print(" ; " + courant + " " + sup + " " + precedent);
+            System.out.println(" ; " + courant + " " + cmp + " " + precedent);
+            
 	        precedent = courant;
+	    
 	    }
+		
 	}
 
 	
@@ -56,9 +59,9 @@ public class Client {
 		{
 			if(lesRationnels[i].compareTo(nouveau) == 1) //element in table superiour to new fraction
 			{
-				for (int j = nb-1; j >= i; j--)
+				for (int j = nb-1; j > i; j--) 
 				{
-					lesRationnels[j+1] = lesRationnels[j]; //shift elements by 1 starting from point we found 
+					lesRationnels[j+1] = lesRationnels[j];
 				}
 				lesRationnels[i] = nouveau;
 				inserted = true;

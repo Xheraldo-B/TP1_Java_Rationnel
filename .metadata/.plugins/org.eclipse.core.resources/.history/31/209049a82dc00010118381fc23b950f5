@@ -52,11 +52,11 @@ public class Client {
 	{
 		boolean inserted = false;
 		assert 0 <= nb && nb <= lesRationnels.length : "Outside the index of the table!";
-		for (int i = 0; i < nb; i++) 
+		for (int i = 0; i < nb-1; i++) 
 		{
 			if(lesRationnels[i].compareTo(nouveau) == 1) //element in table superiour to new fraction
 			{
-				for (int j = nb-1; j >= i; j--)
+				for (int j = nb-1; j > i; j--)
 				{
 					lesRationnels[j+1] = lesRationnels[j]; //shift elements by 1 starting from point we found 
 				}
